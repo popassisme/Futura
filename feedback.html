@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback System</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="crypto.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .form-group input[type="radio"],
+    .form-group input[type="range"] {
+        margin-top: 5px;
+    }
+
+    .form-group button {
+        background-color: #103cbe;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .form-group button:hover {
+        background-color: #0e3097;
+    }
+
+    .feedback-list {
+        margin-top: 20px;
+    }
+
+    .feedback-item {
+        background-color: #f9f9f9;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        font-size: 16px;
+    }
+
+    .feedback-item i {
+        margin-right: 5px;
+    }
+</style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="image/futu.jpg" alt="logo">
+        </div>
+        <ul>
+            <li><a href="login2.html">Home</a></li>
+            <li>
+                <span class="sub_menu_parent">
+                    <a href="#">Services</a>
+                    <div class="sub_menu">
+                        <div class="content">
+                            <ul>
+                                <li><a href="crypto.html">Crypto Tracker</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </span>
+            </li>
+            <li>
+                <span class="sub_menu_parent">
+                <a href="#">Activities</a>
+                <div class="sub_menu">
+                    <div class="content">
+                        <ul>
+                            <li><a href="crypto2.html">Crypto Converter</a></li>
+                            <li><a href="investment.html">Investment Calculator</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </span>
+            <li>
+                <span class="sub_menu_parent">
+                    <a href="#">Forms</a>
+                    <div class="sub_menu">
+                        <div class="content">
+                            <ul>
+                                <li><a href="feedback.html">Feedback Form</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </span>
+            </li>
+            <li>
+                <span class="sub_menu_parent">
+                    <a href="#">Profile</a>
+                    <div class="sub_menu">
+                        <div class="content">
+                            <ul>
+                                <li><a href="dashboard.html">Budget</a></li>
+                                <li><a href="index.html">Expense</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </span>
+            </li>
+        </ul>
+    </nav>
+
+
+<div class="container">
+    <h2 style="text-align: center;">Feedback System</h2>
+    <div class="form-group">
+        <label for="recommendation">How likely are you to recommend our service to others?</label>
+        <input type="radio" name="recommendation" value="1"> 1
+        <input type="radio" name="recommendation" value="2"> 2
+        <input type="radio" name="recommendation" value="3"> 3
+        <input type="radio" name="recommendation" value="4"> 4
+        <input type="radio" name="recommendation" value="5"> 5
+    </div>
+    <div class="form-group">
+        <label for="satisfaction">On a scale of 1 to 10, how satisfied are you with our service?</label>
+        <input type="range" name="satisfaction" min="1" max="10" value="5">
+    </div>
+    <div class="form-group">
+        <label for="feedback-input">Any additional comments or feedback?</label>
+        <textarea id="feedback-input" placeholder="Enter your feedback..."></textarea>
+    </div>
+    <div class="form-group">
+        <button onclick="submitFeedback()"><i class="fas fa-paper-plane"></i> Submit</button>
+    </div>
+
+    <div class="feedback-list"></div>
+</div>
+
+<script>
+    function submitFeedback() {
+        var recommendation = document.querySelector('input[name="recommendation"]:checked');
+        var satisfaction = document.querySelector('input[name="satisfaction"]').value;
+        var feedbackInput = document.getElementById("feedback-input");
+        var feedback = feedbackInput.value.trim();
+        
+        if (recommendation === null || feedback === "") {
+            alert("Please answer all questions and provide feedback!");
+            return;
+        }
+        
+        var feedbackList = document.querySelector(".feedback-list");
+        var feedbackItem = document.createElement("div");
+        feedbackItem.classList.add("feedback-item");
+        feedbackItem.innerHTML = '<i class="fas fa-comment"></i> Recommendation: ' + recommendation.value + '<br>' +
+                                 '<i class="fas fa-star"></i> Satisfaction: ' + satisfaction + '<br>' +
+                                 '<i class="fas fa-comment-alt"></i> Feedback: ' + feedback;
+        feedbackList.appendChild(feedbackItem);
+        resetForm();
+    }
+
+    function resetForm() {
+        document.querySelector('input[name="recommendation"]:checked').checked = false;
+        document.querySelector('input[name="satisfaction"]').value = "5";
+        document.getElementById("feedback-input").value = "";
+    }
+</script>
+<footer class="footer">
+    <div class="container2">
+        <div class="row">
+            <div class="footer-col">
+                <h4>company</h4>
+                <ul>
+                    <li><a href="#">about us</a></li>
+                    <li><a href="#">our services</a></li>
+                    <li><a href="#">Feedback</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>get help</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>online shop</h4>
+                <ul>
+                    <li><a href="#">watch</a></li>
+        
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

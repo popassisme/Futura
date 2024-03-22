@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment App</title>
+    <link rel="stylesheet" href="investment.css">
+    <link rel="stylesheet" href="crypto.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="image/futu.jpg" alt="logo">
+        </div>
+        <ul>
+            <li><a href="login2.html">Home</a></li>
+            <li>
+                <span class="sub_menu_parent">
+                    <a href="#">Services</a>
+                    <div class="sub_menu">
+                        <div class="content">
+                            <ul>
+                                <li><a href="crypto.html">Crypto Tracker</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </span>
+            </li>
+            <li>
+                <span class="sub_menu_parent">
+                <a href="#">Activities</a>
+                <div class="sub_menu">
+                    <div class="content">
+                        <ul>
+                            <li><a href="crypto2.html">Crypto Converter</a></li>
+                            <li><a href="investment.html">Investment Calculator</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </span>
+            <li>
+                <span class="sub_menu_parent">
+                    <a href="#">Forms</a>
+                    <div class="sub_menu">
+                        <div class="content">
+                            <ul>
+                                <li><a href="feedback.html">Feedback Form</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </span>
+            </li>
+            <li>
+                <span class="sub_menu_parent">
+                    <a href="#">Profile</a>
+                    <div class="sub_menu">
+                        <div class="content">
+                            <ul>
+                                <li><a href="dashboard.html">Budget</a></li>
+                                <li><a href="index.html">Expense</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </span>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Investment Calculator</h1>
+        <div class="input-section">
+            <label for="investmentAmount">Enter Investment Amount:</label>
+            <input type="number" id="investmentAmount" placeholder="Enter amount">
+            <label for="investmentDuration">Enter Investment Duration (in years):</label>
+            <input type="number" id="investmentDuration" placeholder="Enter duration">
+            <label for="interestRate">Interest Rate (per year):</label>
+            <input type="number" id="interestRate" step="0.01" placeholder="Enter interest rate">
+            <button onclick="calculateInvestment()">Calculate</button>
+        </div>
+        <div id="result"></div>
+    </div>
+    <script src="investment.js"></script>
+
+    <footer class="footer">
+        <div class="container2">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>company</h4>
+                    <ul>
+                        <li><a href="#">about us</a></li>
+                        <li><a href="#">our services</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>get help</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>online shop</h4>
+                    <ul>
+                        <li><a href="#">watch</a></li>
+            
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
